@@ -3,19 +3,20 @@
 #include "Judge.h"
 
 void gLoop();
-void LelCh(int level);		//·¹º§ Ã¼Å© ÇÔ¼ö
+void LelCh(int level);		//ë ˆë²¨ ì²´í¬ í•¨ìˆ˜
 void drawMap(int level);
-int selected[2] = { 0,0 };		// ¼±ÅÃÇÑ array ¿ä¼Ò(?) ÀúÀå
+int selected[2] = { 0,0 };// ì„ íƒí•œ array ìš”ì†Œ(?) ì €ì¥
+ï½‰ï½ï½”ã€€ï½Œï½…ï½–ï½…ï½Œ;
 //int array[17] = { 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8 };
 char array[17] = { '1','2','3','4','5','6','7','8','1','2','3','4','5','6','7','8' };
 char L2[16] = {'a','a','b','b','c','c','d','d','e','e','f','f','g','g','h','h' };
 char L3[16] = { '#','#','&','&','!','!','?','?','$','$','@','@','+','+','=','=' };
 char L4[16] = { '~','~','-','-','=','=',',',',','.','.','/','/','|','|','_','_'};
 
-//ÇÑ±Û°ú ÇÑÀÚ´Â 2¹ÙÀÌÆ®¶ó,,,,, ²¿ÀÓ,,,,,
-//char L4[] = "¤Ã¤Ã¤Å¤Å¤Æ¤Æ¤Ä¤Ä¤À¤À¤Â¤Â¤Ï¤Ï¤Ê¤Ê";
+//í•œê¸€ê³¼ í•œìëŠ” 2ë°”ì´íŠ¸ë¼,,,,, ê¼¬ì„,,,,,
+//char L4[] = "ã…“ã…“ã…•ã…•ã…–ã…–ã…”ã…”ã…ã…ã…’ã…’ã…Ÿã…Ÿã…šã…š";
 //char L5[]
-//Ãâ·ÂÇÒ¶§´Â printf("%c%c",L4[i],L4[i+1])  ÀÌ·±½ÄÀ¸·Î....
+//ì¶œë ¥í• ë•ŒëŠ” printf("%c%c",L4[i],L4[i+1])  ì´ëŸ°ì‹ìœ¼ë¡œ....
 
 void move(int* array_zo, int* x, int* y, int* correct);
 
@@ -24,13 +25,18 @@ int main() {
 	while (1) {
 		title();
 		int menuCh = menu();
-		if (menuCh == 0) {	//°ÔÀÔ Á¾·á
+		if (menuCh == 0) {	//ê²Œì… ì¢…ë£Œ
 			return 0;
 		}
-		else if (menuCh == 1) {		//°ÔÀÓ ½ÃÀÛ
-			gLoop();	//°ÔÀÓ ½ÇÇà
+		else if (menuCh == 1) {		//ê²Œì„ ì‹œì‘
+			int gLoop_
+			if (gLoopï¼¿()ï¼‘ï¼‰{	//ê²Œì„ ì‹¤í–‰
+			}ï¼ï¼ï½Œï½…ï½–ï½…ï½Œï¼‹ï¼‹ï¼ï¼ï½Œï½…ï½–ï½…ï½Œï¼£ï½ˆã€€
+			else 
+			    ï½‡ï½ï½ï½…ã€€ï½ï½–ï½…ï½’ï¼ˆï¼‰ï¼›
+			    ï½‚ï½’ï½…ï½ï½‹ï¼›
 		}
-		else if (menuCh == 2) {		//°ÔÀÓ ¹æ¹ı
+		else if (menuCh == 2) {		//ê²Œì„ ë°©ë²•
 			game_rule();
 		}
 		system("cls");
@@ -39,9 +45,9 @@ int main() {
 }
 
 void gLoop() {
-	int playing = 1;	// 1 : °ÔÀÓ Áß, 0 :°ÔÀÓ Á¾·á
+	int playing = 1;	// 1 : ê²Œì„ ì¤‘, 0 :ê²Œì„ ì¢…ë£Œ
 	int level = 1,correct=0;
-	int array_zo[6][6];		//array_zo ¼±¾ğ	//Àü¿ª...?
+	int array_zo[6][6];		//array_zo ì„ ì–¸	//ì „ì—­...?
 	for (int j = 0; j < 6; j++)
 		for (int i = 0; i < 6; i++)
 			array_zo[i][j] = 1;
@@ -51,21 +57,27 @@ void gLoop() {
 		array_zo[5][i] = 0;
 		array_zo[i][5] = 0;
 	}
-	drawMap(level);		//¸Ê Ãâ·Â
-	setcolor(10, 0);	//ÃÊ±â Ä¿¼­ À§Ä¡¿¡¼­ Ãâ·Â
+	drawMap(level);		//ë§µ ì¶œë ¥
+	
+	time_t startC =time(NULL);	//ì´ˆê¸°ã€€ì‹œê°„ã€€
+	ï½†ï½Œï½ï½ï½”ã€€ï½”ï½‰ï½ï½…ï¼¿ï½Œï½‰ï½ï½‰ï½”ã€€ï¼“ï¼ï¼ï¼ï¼ï½†
+		
+	setcolor(10, 0);	//ì´ˆê¸° ì»¤ì„œ ìœ„ì¹˜ì—ì„œ ì¶œë ¥
 	int x = 11, y = 7;	
 	gotoxy(x+1 , y);
 	printf("\b%c", array[0]);
-	while (playing) {	//°ÔÀÓ ·çÇÁ
+	while (playingï½œï½œï½”ï½‰ï½ï½…ï¼ˆï¼®ï¼µï¼¬ï¼¬ï¼‰ï¼ï½“ï½”ï½ï½’ï½”ï¼£ï¼œï½”ï½‰ï½ï½…ï½Œï½‰ï½ï½‰ï½”) {	//ê²Œì„ ë£¨í”„
 		if (_kbhit()) {
 			move(array_zo, &x, &y, &correct);
-			
+			printf_life(life);
 		}
 		
 	}
+	ï½’ï½…ï½”ï½•ï½’ï½ã€€ï¼ï¼›
+	
 }
 void move(int* array_zo,int *x,int*y,int *correct) {	
-	setcolor(7, 0);		//ÀÌµ¿ Àü Èò»öÀ¸·Î Ãâ·Â
+	setcolor(7, 0);		//ì´ë™ ì „ í°ìƒ‰ìœ¼ë¡œ ì¶œë ¥
 	printf("\b%c", array[cursor]);
 	int key = keyControl();
 	if (key == UP) {
@@ -100,7 +112,7 @@ void move(int* array_zo,int *x,int*y,int *correct) {
 			cursor -= 4;
 		}
 	}
-	//Enter Ã¹ ¹øÂ°
+	//Enter ì²« ë²ˆì§¸
 	else if (key == ENTER && number == 0) {
 		setcolor(4, 0);
 		printf("*");
@@ -109,7 +121,7 @@ void move(int* array_zo,int *x,int*y,int *correct) {
 		number++;
 		selected[0] = cursor;
 	}
-	//Enter µÎ ¹øÂ°
+	//Enter ë‘ ë²ˆì§¸
 	else if (key == ENTER && number == 1)
 	{
 		c = (*x - 11) / 9;
@@ -120,8 +132,8 @@ void move(int* array_zo,int *x,int*y,int *correct) {
 		gotoxy(a * 9 + 11 + 1, b * 4 + 7);
 		printf(" ");
 
-		if (a == c && b == d || array[selected[0]] != array[selected[1]]) {		//°°Àº °Í ¼±ÅÃ
-			for (int i = 0; i < 2; i++) {	//selected ÇÔ¼ö ÃÊ±âÈ­
+		if (a == c && b == d || array[selected[0]] != array[selected[1]]) {		//ê°™ì€ ê²ƒ ì„ íƒ
+			for (int i = 0; i < 2; i++) {	//selected í•¨ìˆ˜ ì´ˆê¸°í™”
 				selected[i] = 0;
 			}
 		}
@@ -134,7 +146,7 @@ void move(int* array_zo,int *x,int*y,int *correct) {
 				gotoxy(c * 9 + 11, d * 4 + 7);
 				printf("\b\b\b\b        ");
 
-				*correct++;	//correct 8ÀÌ µÇ¸é Á¾·áÇÒ ¿¹Á¤
+				*correct++;	//correct 8ì´ ë˜ë©´ ì¢…ë£Œí•  ì˜ˆì •
 			}
 		}
 	}
@@ -144,19 +156,19 @@ void move(int* array_zo,int *x,int*y,int *correct) {
 }
 
 void LelCh(int level) {
-	if (level == 2) {	//¿µ¾î
+	if (level == 2) {	//ì˜ì–´
 		memcpy(array, L2, sizeof(array));
 	}
-	else if (level == 3) {		//½¬¿î ±âÈ£
+	else if (level == 3) {		//ì‰¬ìš´ ê¸°í˜¸
 		memcpy(array, L3, sizeof(array));
 	}
-	else if (level == 4) {		//¾î·Á¿î ±âÈ£
+	else if (level == 4) {		//ì–´ë ¤ìš´ ê¸°í˜¸
 		memcpy(array, L4, sizeof(array));
 	}
 }
 void drawMap(int level) {
 	setcolor(14, 2);
-	printf("\n                   »ç  Ãµ  ¼º                    \n\n");
+	printf("\n                   ì‚¬  ì²œ  ì„±                    \n\n");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	printf("                                          level : %d\n\n", level);
 	LelCh(level);
@@ -169,8 +181,8 @@ void drawMap(int level) {
 	}
 	gotoxy(0, 23);
 	printf("=============================================\n\n");
-	printf("  ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤                ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¤ \n");
-	printf("  ¦¢ reset ¦¢  : R Å°        ¦¢ quit ¦¢  : Q Å° \n");
-	printf("  ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥                ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+	printf("  â”Œâ”€â”€â”€â”€â”€â”€â”€â”                â”Œâ”€â”€â”€â”€â”€â”€â” \n");
+	printf("  â”‚ reset â”‚  : R í‚¤        â”‚ quit â”‚  : Q í‚¤ \n");
+	printf("  â””â”€â”€â”€â”€â”€â”€â”€â”˜                â””â”€â”€â”€â”€â”€â”€â”˜\n");
 	system("pause");
 }
